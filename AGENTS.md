@@ -57,5 +57,6 @@ A promessa do produto é: nenhuma fila invisível, nenhum pedido esquecido, nenh
 - Tudo que for criado precisa ser documentado no mesmo branch.
 - Toda alteração de comportamento, arquitetura, API, schema, operação ou teste deve atualizar a documentação correspondente.
 - Testes são obrigatórios para mudanças executáveis: unitários, integração quando houver fronteira externa e end-to-end para fluxos críticos.
+- Antes de fazer merge em `main`, se a branch da fase tiver vários commits, condensar em um único commit de fase para facilitar revert.
 - Nenhuma fase deve ser considerada pronta sem documentação atualizada e evidência de testes rodados ou uma justificativa explícita quando a fase ainda não tiver código executável.
 - As regras completas estão em [docs/engineering/repository-rules.md](docs/engineering/repository-rules.md).
