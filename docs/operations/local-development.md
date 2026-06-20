@@ -42,4 +42,6 @@ supabase/migrations/202606200005_operational_foundation.sql
 
 Ela define o contrato relacional para Supabase/Postgres. O caminho local executável usa store em memória para permitir desenvolvimento e E2E sem depender de segredos, Supabase CLI ou dados manuais.
 
+O pacote `internal/storage/postgres` fornece o repositório baseado em `database/sql`, sem fixar driver externo no módulo inicial. A aplicação local usa o store em memória até que a fase de ambiente defina o driver e a URL de banco oficiais.
+
 Quando uma fase passar a exigir Postgres real no ciclo padrão, o teste de integração deve aplicar as migrations versionadas contra um banco local ou ambiente dedicado de teste.

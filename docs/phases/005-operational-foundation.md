@@ -10,6 +10,7 @@ Criar a base executavel para registrar eventos, persistir estados operacionais, 
 - API HTTP em `cmd/api`.
 - Dominio de eventos, sessoes, pedidos, tarefas, reclamacoes, handoff de conta, SLA e metricas.
 - Store em memoria para desenvolvimento e E2E local.
+- Repositorio Postgres baseado em `database/sql`, pronto para receber driver/configuracao de ambiente.
 - Migration Supabase/Postgres com entidades minimas.
 - Fixtures locais de restaurante, turno, mesa e equipe.
 - Makefile com comandos oficiais.
@@ -46,6 +47,10 @@ Cobertura criada:
 - avaliacao de SLA;
 - migration com entidades minimas;
 - E2E P0 sobre API HTTP.
+
+## Excecao de historico
+
+A branch preserva dois commits porque o repositorio Postgres e o ajuste do tipo de IDs da migration foram adicionados como correcao de revisao depois do primeiro pacote executavel ja publicado. Os dois commits pertencem a mesma fase e foram validados juntos antes da integracao final.
 
 ## Escopo fora
 
