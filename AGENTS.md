@@ -64,11 +64,11 @@ O mapa completo está em [docs/agents/experience-value-agents.md](docs/agents/ex
 
 ## Regras do repositório
 
-- Cada fase de trabalho deve ter uma branch própria no formato `phase/<numero>-<slug>`, criada a partir de `main`.
+- Trabalhar direto em `main` por padrão; criar branch separada apenas quando o usuário pedir explicitamente ou quando houver risco técnico forte que justifique isolar a mudança.
+- O checkout local precisa ficar sincronizado com o remoto: antes de começar trabalho relevante, buscar/atualizar `origin/main`; ao concluir e validar uma entrega, commitar e fazer push para `origin/main`.
 - A stack oficial é Go com Supabase. Go deve concentrar API, domínio, integrações e testes; Supabase deve concentrar Postgres e serviços gerenciados acordados na documentação da fase.
-- Tudo que for criado precisa ser documentado no mesmo branch.
+- Tudo que for criado precisa ser documentado no mesmo commit ou na mesma sequência de entrega.
 - Toda alteração de comportamento, arquitetura, API, schema, operação ou teste deve atualizar a documentação correspondente.
 - Testes são obrigatórios para mudanças executáveis: unitários, integração quando houver fronteira externa e end-to-end para fluxos críticos.
-- Antes de fazer merge em `main`, se a branch da fase tiver vários commits, condensar em um único commit de fase para facilitar revert.
 - Nenhuma fase deve ser considerada pronta sem documentação atualizada e evidência de testes rodados ou uma justificativa explícita quando a fase ainda não tiver código executável.
 - As regras completas estão em [docs/engineering/repository-rules.md](docs/engineering/repository-rules.md).

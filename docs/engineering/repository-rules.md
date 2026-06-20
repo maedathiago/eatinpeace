@@ -6,54 +6,49 @@ Este repositório é a fonte de verdade do Eat in Peace. Decisões de produto, a
 
 Conversas podem orientar decisões, mas a decisão final precisa virar arquivo versionado.
 
-## Branch por fase
+## Fluxo em main sincronizada
 
-Cada fase deve ter sua própria branch.
-
-Convenção:
-
-```text
-phase/<numero>-<slug>
-```
-
-Exemplos:
-
-```text
-phase/000-repo-rules
-phase/001-product-mvp-scope
-phase/002-go-api-foundation
-phase/003-supabase-schema
-```
+O fluxo padrão do repositório é trabalhar direto em `main`, mantendo o checkout local sincronizado com `origin/main`.
 
 Regras:
 
-- Criar a branch a partir de `main`.
-- Uma branch deve representar uma fase clara de trabalho.
-- Não misturar fases independentes na mesma branch.
-- Cada fase deve ter um documento em `docs/phases/`.
+- Antes de começar trabalho relevante, buscar o estado remoto e confirmar se `main` local está alinhada com `origin/main`.
+- Se `origin/main` tiver avançado, atualizar a `main` local antes de editar arquivos.
+- Ao concluir uma entrega, validar, commitar em `main` e fazer push para `origin/main`.
+- O estado final esperado é `main` local limpa e sem divergência em relação ao remoto.
+- Criar branch separada apenas quando o usuário pedir explicitamente ou quando houver risco técnico forte que justifique isolamento temporário.
+
+## Entregas e documentos de fase
+
+As fases continuam existindo como unidades de planejamento e documentação, mas não exigem branch própria.
+
+Regras:
+
+- Uma entrega deve representar uma fase ou mudança clara de trabalho.
+- Não misturar mudanças independentes no mesmo commit quando isso dificultar revisão ou revert.
+- Cada fase relevante deve ter um documento em `docs/phases/`.
 - O documento da fase deve registrar objetivo, escopo, entregáveis, documentação alterada e testes executados.
 
-## Squash antes de merge
+## Histórico e commits
 
-Antes de fazer merge de uma fase em `main`, a branch deve ter um histórico fácil de reverter.
+O histórico de `main` deve continuar fácil de ler e reverter.
 
 Regra:
 
-- Se a branch da fase tiver apenas um commit de trabalho, ela pode ser mergeada como está.
-- Se a branch da fase tiver vários commits de trabalho, eles devem ser condensados em um único commit de fase antes do merge.
-- O commit final da fase deve representar a entrega completa e ter mensagem clara.
-- Correções intermediárias, checkpoints locais e commits de tentativa não devem entrar em `main` como commits separados.
-- O documento da fase ou a descrição do PR deve registrar que a fase foi condensada quando isso acontecer.
+- Preferir commits que representem entregas completas e tenham mensagem clara.
+- Correções intermediárias, checkpoints locais e commits de tentativa não devem ser publicados em `main` como ruído permanente.
+- Se o trabalho gerar muitos commits locais de tentativa, condensar antes de publicar ou criar uma branch temporária apenas para organizar a entrega.
+- Quando houver branch temporária, aplicar a entrega em `main` com histórico simples e depois sincronizar o remoto.
 
 Motivo:
 
-- Facilitar revert de uma fase inteira.
+- Facilitar revert de uma entrega inteira.
 - Manter `main` legível por marcos de produto e engenharia.
 - Reduzir ruído de commits intermediários que não representam entregas estáveis.
 
 Exceção:
 
-- Se uma fase precisar preservar commits separados por motivo técnico forte, o motivo deve ser documentado antes do merge.
+- Se uma entrega precisar preservar commits separados por motivo técnico forte, o motivo deve ser documentado.
 
 ## Stack oficial
 
@@ -124,10 +119,10 @@ Uma fase com código executável não está pronta se:
 
 Uma fase só está pronta quando:
 
-- Está em branch própria.
 - O escopo da fase está documentado.
 - O código, se houver, está implementado.
 - A documentação afetada foi atualizada.
 - Testes unitários, integração e end-to-end aplicáveis foram criados ou atualizados.
 - Os testes foram executados e o resultado foi registrado no documento da fase ou na descrição do PR.
-- Se a branch teve vários commits, eles foram condensados em um único commit de fase antes do merge ou a exceção foi documentada.
+- A entrega foi commitada em `main`.
+- `main` local foi sincronizada com `origin/main`.
