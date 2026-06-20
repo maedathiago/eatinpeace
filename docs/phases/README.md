@@ -16,3 +16,4 @@ Cada fase relevante deve ter uma branch própria e um documento nesta pasta. A `
 | [009: reclamação com ticket, responsável e SLA](009-complaints-ticket-sla.md) | `phase/009-complaints-ticket-sla` | Registrar, classificar, atribuir, responder, resolver e reabrir reclamações |
 | [010: conta solicitada com handoff rastreável](010-bill-handoff.md) | `phase/010-bill-handoff` | Coordenar conta como handoff operacional sem entrar em financeiro |
 | [011: piloto P0 e métricas de turno](011-p0-pilot-metrics.md) | `phase/011-p0-pilot-metrics` | Fechar turno e agregar métricas P0 a partir dos eventos e estados |
+| [012: console operacional P0](012-operational-console-ui.md) | `phase/012-operational-console-ui` | Servir uma UI local para visualizar e acionar os fluxos P0 |

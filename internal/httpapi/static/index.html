@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eat in Peace</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Eat in Peace</p>
+        <h1>Console operacional P0</h1>
+      </div>
+      <div class="status-strip" aria-live="polite">
+        <span id="api-status" class="pill neutral">conectando</span>
+        <span class="pill">rest_pilot</span>
+        <span class="pill">shift_pilot_open</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="control-band">
+        <div class="table-focus">
+          <span class="table-label">Mesa 1</span>
+          <strong id="session-state">sessao nao aberta</strong>
+          <small id="session-id">aguardando QR ou operador</small>
+        </div>
+        <div class="action-grid" aria-label="Acoes operacionais">
+          <button data-action="open-session">Abrir sessao</button>
+          <button data-action="create-order" disabled>Criar pedido</button>
+          <button data-action="preparing" disabled>Em preparo</button>
+          <button data-action="ready" disabled>Pedido pronto</button>
+          <button data-action="picked-up" disabled>Retirado</button>
+          <button data-action="delivered" disabled>Entregue</button>
+          <button data-action="complaint" disabled>Reclamacao</button>
+          <button data-action="resolve-complaint" disabled>Resolver reclamacao</button>
+          <button data-action="bill" disabled>Solicitar conta</button>
+          <button data-action="accept-bill" disabled>Aceitar conta</button>
+          <button data-action="close-bill" disabled>Confirmar fechamento</button>
+          <button data-action="close-shift">Fechar turno</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel timeline-panel">
+          <div class="panel-head">
+            <h2>Linha do tempo</h2>
+            <span id="timeline-count">0 eventos</span>
+          </div>
+          <ol id="timeline" class="timeline"></ol>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Fila do salao</h2>
+            <span id="task-count">0 abertas</span>
+          </div>
+          <div id="tasks" class="task-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Pedidos</h2>
+            <span id="order-count">0 pedidos</span>
+          </div>
+          <div id="orders" class="compact-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Reclamacoes</h2>
+            <span id="complaint-count">0 tickets</span>
+          </div>
+          <div id="complaints" class="compact-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Conta</h2>
+            <span id="bill-state">sem handoff</span>
+          </div>
+          <div id="bills" class="compact-list"></div>
+        </article>
+
+        <article class="panel metrics-panel">
+          <div class="panel-head">
+            <h2>Metricas do turno</h2>
+            <button data-action="refresh">Atualizar</button>
+          </div>
+          <dl class="metrics">
+            <div><dt>Eventos</dt><dd id="metric-events">0</dd></div>
+            <div><dt>Tarefas abertas</dt><dd id="metric-open-tasks">0</dd></div>
+            <div><dt>Tarefas vencidas</dt><dd id="metric-overdue">0</dd></div>
+            <div><dt>Pedidos atrasados</dt><dd id="metric-delayed">0</dd></div>
+            <div><dt>Prontos parados</dt><dd id="metric-ready">0</dd></div>
+            <div><dt>Reclamacoes sem dono</dt><dd id="metric-complaints">0</dd></div>
+          </dl>
+        </article>
+      </section>
+    </main>
+
+    <aside id="toast" class="toast" aria-live="polite"></aside>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -32,6 +32,12 @@ Por padrão a API escuta em `:8080`. Para trocar:
 EATINPEACE_HTTP_ADDR=:8081 make run
 ```
 
+A console operacional P0 fica em:
+
+```text
+http://127.0.0.1:8080/
+```
+
 ## Banco
 
 A migration inicial está em:

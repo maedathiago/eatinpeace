@@ -1,8 +1,10 @@
 package httpapi
 
 import (
+	"embed"
 	"encoding/json"
 	"errors"
+	"io/fs"
 	"net/http"
 	"strings"
 
@@ -10,12 +12,23 @@ import (
 	"github.com/maedathiago/eatinpeace/internal/domain"
 )
 
+//go:embed static/*
+var staticFiles embed.FS
+
 type Handler struct {
 	service *application.Service
+	static  http.Handler
 }
 
 func NewHandler(service *application.Service) http.Handler {
-	return &Handler{service: service}
+	staticRoot, err := fs.Sub(staticFiles, "static")
+	if err != nil {
+		panic(err)
+	}
+	return &Handler{
+		service: service,
+		static:  http.FileServer(http.FS(staticRoot)),
+	}
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -24,6 +37,10 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		path = "/"
 	}
 	switch {
+	case isReadMethod(r.Method) && path == "/":
+		http.ServeFileFS(w, r, staticFiles, "static/index.html")
+	case isReadMethod(r.Method) && strings.HasPrefix(path, "/static/"):
+		http.StripPrefix("/static/", h.static).ServeHTTP(w, r)
 	case r.Method == http.MethodGet && path == "/healthz":
 		writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
 	case path == "/v1/events" && r.Method == http.MethodPost:
@@ -59,6 +76,10 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	default:
 		writeError(w, http.StatusNotFound, "not found")
 	}
+}
+
+func isReadMethod(method string) bool {
+	return method == http.MethodGet || method == http.MethodHead
 }
 
 func (h *Handler) createEvent(w http.ResponseWriter, r *http.Request) {
