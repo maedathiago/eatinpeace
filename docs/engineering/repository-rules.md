@@ -33,6 +33,28 @@ Regras:
 - Cada fase deve ter um documento em `docs/phases/`.
 - O documento da fase deve registrar objetivo, escopo, entregáveis, documentação alterada e testes executados.
 
+## Squash antes de merge
+
+Antes de fazer merge de uma fase em `main`, a branch deve ter um histórico fácil de reverter.
+
+Regra:
+
+- Se a branch da fase tiver apenas um commit de trabalho, ela pode ser mergeada como está.
+- Se a branch da fase tiver vários commits de trabalho, eles devem ser condensados em um único commit de fase antes do merge.
+- O commit final da fase deve representar a entrega completa e ter mensagem clara.
+- Correções intermediárias, checkpoints locais e commits de tentativa não devem entrar em `main` como commits separados.
+- O documento da fase ou a descrição do PR deve registrar que a fase foi condensada quando isso acontecer.
+
+Motivo:
+
+- Facilitar revert de uma fase inteira.
+- Manter `main` legível por marcos de produto e engenharia.
+- Reduzir ruído de commits intermediários que não representam entregas estáveis.
+
+Exceção:
+
+- Se uma fase precisar preservar commits separados por motivo técnico forte, o motivo deve ser documentado antes do merge.
+
 ## Stack oficial
 
 A stack oficial é:
@@ -108,3 +130,4 @@ Uma fase só está pronta quando:
 - A documentação afetada foi atualizada.
 - Testes unitários, integração e end-to-end aplicáveis foram criados ou atualizados.
 - Os testes foram executados e o resultado foi registrado no documento da fase ou na descrição do PR.
+- Se a branch teve vários commits, eles foram condensados em um único commit de fase antes do merge ou a exceção foi documentada.
