@@ -6,21 +6,22 @@ Este repositório é a fonte de verdade do Eat in Peace. Decisões de produto, a
 
 Conversas podem orientar decisões, mas a decisão final precisa virar arquivo versionado.
 
-## Fluxo em main sincronizada
+## Fluxo com branches sincronizadas
 
-O fluxo padrão do repositório é trabalhar direto em `main`, mantendo o checkout local sincronizado com `origin/main`.
+O fluxo padrão do repositório é trabalhar em branches. `main` é a base de integração e precisa permanecer sincronizada com `origin/main`.
 
 Regras:
 
-- Antes de começar trabalho relevante, buscar o estado remoto e confirmar se `main` local está alinhada com `origin/main`.
-- Se `origin/main` tiver avançado, atualizar a `main` local antes de editar arquivos.
-- Ao concluir uma entrega, validar, commitar em `main` e fazer push para `origin/main`.
-- O estado final esperado é `main` local limpa e sem divergência em relação ao remoto.
-- Criar branch separada apenas quando o usuário pedir explicitamente ou quando houver risco técnico forte que justifique isolamento temporário.
+- Antes de começar trabalho relevante, buscar o estado remoto e atualizar a `main` local a partir de `origin/main`.
+- Toda feature, correção ou etapa deve ter branch própria criada a partir da `main` atualizada.
+- A branch local deve ser publicada no remoto quando houver entrega ou colaboração relevante.
+- Se `origin/main` avançar durante o trabalho, atualizar a branch com a `main` mais recente antes de finalizar.
+- Antes de integrar, confirmar que a branch está validada, documentada e alinhada com a `main` atual.
+- Ao concluir a integração, fazer push de `main` para `origin/main` e confirmar que local e remoto estão sem divergência.
 
 ## Entregas e documentos de fase
 
-As fases continuam existindo como unidades de planejamento e documentação, mas não exigem branch própria.
+As fases continuam existindo como unidades de planejamento e documentação, e devem ser implementadas em branch própria.
 
 Regras:
 
@@ -28,6 +29,7 @@ Regras:
 - Não misturar mudanças independentes no mesmo commit quando isso dificultar revisão ou revert.
 - Cada fase relevante deve ter um documento em `docs/phases/`.
 - O documento da fase deve registrar objetivo, escopo, entregáveis, documentação alterada e testes executados.
+- A branch da fase deve ser nomeada no formato `phase/<numero>-<slug>`, exceto quando a mudança for uma correção menor com outro prefixo claro.
 
 ## Histórico e commits
 
@@ -37,8 +39,8 @@ Regra:
 
 - Preferir commits que representem entregas completas e tenham mensagem clara.
 - Correções intermediárias, checkpoints locais e commits de tentativa não devem ser publicados em `main` como ruído permanente.
-- Se o trabalho gerar muitos commits locais de tentativa, condensar antes de publicar ou criar uma branch temporária apenas para organizar a entrega.
-- Quando houver branch temporária, aplicar a entrega em `main` com histórico simples e depois sincronizar o remoto.
+- Se a branch tiver vários commits locais de tentativa, condensar antes de integrar em `main` ou documentar a exceção.
+- Integrar a branch em `main` com histórico simples e depois sincronizar o remoto.
 
 Motivo:
 
@@ -119,10 +121,12 @@ Uma fase com código executável não está pronta se:
 
 Uma fase só está pronta quando:
 
+- Está em branch própria criada a partir de `main` atualizada.
+- A branch foi mantida em sync com a `main` mais recente antes da integração.
 - O escopo da fase está documentado.
 - O código, se houver, está implementado.
 - A documentação afetada foi atualizada.
 - Testes unitários, integração e end-to-end aplicáveis foram criados ou atualizados.
 - Os testes foram executados e o resultado foi registrado no documento da fase ou na descrição do PR.
-- A entrega foi commitada em `main`.
-- `main` local foi sincronizada com `origin/main`.
+- A entrega foi integrada em `main`.
+- `main` local e `origin/main` foram sincronizadas após a integração.
