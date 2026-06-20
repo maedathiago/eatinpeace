@@ -9,6 +9,8 @@ Esta lista consolida a análise dos agentes especializados do Eat in Peace sobre
 - Restaurantes consultados: 135.
 - Principais temas encontrados: nota baixa ou insatisfação geral, atendimento, qualidade da comida, demora, fila/reserva, delivery, porção, preço, cobrança, pedido errado e limpeza.
 
+O plano de implementação derivado desta estratégia está em `docs/implementation-plan-complaints-mvp.md`.
+
 ## Leitura estratégica
 
 O Eat in Peace não deve tentar resolver diretamente "comida ruim", preço, estoque, delivery ou financeiro. A oportunidade de produto está no que aparece por trás de boa parte das reclamações: o cliente não sabe o que está acontecendo, o salão não sabe o que priorizar, a cozinha não comunica risco a tempo, a conta vira uma espera invisível e a reclamação não tem dono.
