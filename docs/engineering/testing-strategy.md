@@ -50,21 +50,33 @@ Quando Supabase entrar no projeto:
 
 ## Comandos
 
-Os comandos oficiais serão definidos quando o código Go e o ambiente Supabase forem criados.
-
-O objetivo inicial é que o projeto tenha comandos equivalentes a:
+Os comandos oficiais da fundação P0 são:
 
 ```bash
-go test ./...
+make test
 ```
 
-E um comando documentado para end-to-end, por exemplo:
+O comando roda:
+
+```bash
+GOCACHE=/tmp/eatinpeace-go-build go test ./...
+```
+
+O end-to-end P0 roda com:
 
 ```bash
 make test-e2e
 ```
 
+O E2E cobre sessão de mesa, pedido, SLA, pedido pronto, reclamação, conta como handoff e fechamento de turno.
+
 Se o comando oficial mudar, este documento e o documento da fase precisam ser atualizados no mesmo branch.
+
+## Contrato atual
+
+A fundação executável usa store em memória para API e E2E. A migration Supabase/Postgres fica versionada e tem teste de contrato para garantir que as entidades mínimas existem e que o schema não entrou em POS, financeiro, fiscal, estoque ou delivery.
+
+Quando um repositório Postgres real for implementado, ele deve adicionar teste de integração que aplique as migrations contra Postgres local ou ambiente dedicado.
 
 ## Regra de falha
 
