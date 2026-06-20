@@ -42,6 +42,18 @@ A promessa do produto é: nenhuma fila invisível, nenhum pedido esquecido, nenh
    - Mostra gargalos, reclamações recorrentes, itens atrasados, garçons sobrecarregados e mesas em risco.
    - Foca em ações operacionais durante o serviço e análise depois do turno.
 
+## Agentes de experiência e valor
+
+Além dos agentes operacionais, o projeto deve manter agentes voltados para os consumidores do produto:
+
+- Restaurantes e gestores, que pagam para reduzir caos operacional.
+- Donos de aplicações parceiras, que podem embutir Eat in Peace sem substituir o sistema principal.
+- Clientes finais, que precisam de clareza, confiança e menos espera invisível.
+
+Esses agentes devem buscar valor adicional sem aumentar escopo. Valor adicional aceitável melhora onboarding, integração, visibilidade, priorização, mensagens, insights ou adoção usando eventos já existentes. Valor que exige construir financeiro, POS completo, estoque, fiscal, ERP ou novo workflow primário fica fora de escopo.
+
+O mapa completo está em [docs/agents/experience-value-agents.md](docs/agents/experience-value-agents.md).
+
 ## Estilo de trabalho
 
 - Escrever documentação de produto em português, exceto quando uma integração técnica exigir inglês.

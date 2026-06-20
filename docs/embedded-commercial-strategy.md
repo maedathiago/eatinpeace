@@ -33,6 +33,14 @@ O restaurante paga para reduzir caos operacional:
 - Mais previsibilidade no salão.
 - Mais dados sobre gargalos reais do turno.
 
+Donos de aplicações parceiras pagam ou revendem para aumentar valor percebido do produto que já possuem:
+
+- Um módulo de atendimento que reduz reclamação sem substituir POS.
+- Uma narrativa comercial clara de experiência e eficiência.
+- Um caminho de implantação com eventos mínimos.
+- Um add-on que pode começar manual e evoluir para API.
+- Sinais de qualidade operacional que fortalecem o produto parceiro.
+
 ## Formas de embedding
 
 1. Widget de mesa
@@ -72,6 +80,20 @@ Começar por uma dor estreita e pagável:
 3. Solicitação de conta com handoff para caixa ou POS existente.
 
 Esse wedge evita o build pesado e cria valor sem pedir que o restaurante troque seu sistema principal.
+
+## Valor adicional sem aumento de escopo
+
+Valores adicionais devem nascer da camada de orquestração já proposta:
+
+- Mensagens melhores para o cliente final.
+- Checklists de implantação.
+- Relatórios de valor para o gestor.
+- Score de mesa em risco.
+- Diagnóstico de integração para parceiros.
+- Templates comerciais para parceiros venderem o módulo.
+- Insights pós-turno baseados nos eventos já capturados.
+
+Valores adicionais não devem exigir financeiro, POS completo, ERP, estoque, fiscal, RH ou marketing externo.
 
 ## Métrica de valor
 

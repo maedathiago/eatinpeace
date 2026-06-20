@@ -4,6 +4,8 @@ Estes agentes descrevem o primeiro modelo operacional do Eat in Peace. Eles são
 
 ## Mapa dos agentes
 
+### Agentes operacionais
+
 | Agente | Usuário principal | Experiência melhorada |
 | --- | --- | --- |
 | [Customer Concierge Agent](customer-concierge-agent.md) | Cliente | Pedido visível, chamado registrado, conta sem caça ao garçom |
@@ -12,6 +14,16 @@ Estes agentes descrevem o primeiro modelo operacional do Eat in Peace. Eles são
 | [Complaint Priority Agent](complaint-priority-agent.md) | Cliente e gerente | Reclamação com ordem, dono e SLA |
 | [Bill Handoff Agent](bill-handoff-agent.md) | Cliente, garçom e caixa | Solicitação de conta mais rápida sem mexer no financeiro |
 | [Manager Insights Agent](manager-insights-agent.md) | Gestor | Gargalos e aprendizado de turno |
+
+### Agentes de experiência e valor
+
+| Agente | Usuário principal | Experiência melhorada |
+| --- | --- | --- |
+| [Restaurant Success Agent](experience-value-agents.md#restaurant-success-agent) | Restaurante e gestor | Adoção, configuração e prova de valor |
+| [Partner App Experience Agent](experience-value-agents.md#partner-app-experience-agent) | Dono de aplicação parceira | Embedding simples e valor para o produto parceiro |
+| [Customer Trust Agent](experience-value-agents.md#customer-trust-agent) | Cliente final | Clareza, calma e sensação de justiça |
+| [Scope-Neutral Value Agent](experience-value-agents.md#scope-neutral-value-agent) | Produto e parceiros | Novos valores sem aumentar escopo |
+| [Feedback-to-Insight Agent](experience-value-agents.md#feedback-to-insight-agent) | Restaurante, parceiro e produto | Aprendizado acionável a partir de eventos já capturados |
 
 ## Eventos compartilhados
 

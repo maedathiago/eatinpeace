@@ -6,8 +6,10 @@ A tese inicial e a definição dos agentes estão em:
 
 - [Tese do produto](docs/product-thesis.md)
 - [Estratégia embedded e comercial](docs/embedded-commercial-strategy.md)
+- [Estratégias de produto a partir de reclamações 2025+](docs/product-strategy-complaints-2025.md)
+- [Agentes de experiência e valor](docs/agents/experience-value-agents.md)
 - [Regras do repositório](docs/engineering/repository-rules.md)
 - [Estratégia de testes](docs/engineering/testing-strategy.md)
-- [Fases do projeto](docs/phases/000-repo-rules.md)
+- [Fases do projeto](docs/phases/)
 - [Guia de agentes](AGENTS.md)
 - [Agentes do produto](docs/agents/)
