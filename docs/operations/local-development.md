@@ -8,6 +8,18 @@
 
 ## Comandos
 
+Instalar dependencias do frontend:
+
+```bash
+cd web && npm install
+```
+
+Gerar a console React embutida no backend:
+
+```bash
+make build-web
+```
+
 Rodar todos os testes:
 
 ```bash
@@ -37,6 +49,14 @@ A console operacional P0 fica em:
 ```text
 http://127.0.0.1:8080/
 ```
+
+Durante desenvolvimento visual, a fonte React pode rodar via Vite:
+
+```bash
+cd web && npm run dev
+```
+
+O Vite usa a API do backend Go no mesmo host quando o build embutido e gerado. Para validar a experiencia servida pelo backend, rode `make build-web` antes de `make run`.
 
 ## Banco
 

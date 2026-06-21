@@ -70,6 +70,14 @@ make test-e2e
 
 O E2E cobre sessão de mesa, pedido, SLA, pedido pronto, reclamação, conta como handoff e fechamento de turno.
 
+O frontend React roda typecheck e build com:
+
+```bash
+make test-web
+```
+
+O build publica assets versionados em `internal/httpapi/static`, e os testes HTTP validam que a rota raiz aponta para o bundle servido pelo backend Go.
+
 Se o comando oficial mudar, este documento e o documento da fase precisam ser atualizados no mesmo branch.
 
 ## Contrato atual

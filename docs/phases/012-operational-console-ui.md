@@ -2,12 +2,13 @@
 
 ## Objetivo
 
-Criar uma primeira UI local para visualizar e acionar os fluxos P0 ja existentes na API.
+Criar uma primeira UI local em React para visualizar e acionar os fluxos P0 ja existentes na API.
 
 ## Escopo
 
 - Tela servida em `/` pelo backend Go.
-- Assets estaticos em `internal/httpapi/static`.
+- Fonte React em `web/`.
+- Assets estaticos gerados em `internal/httpapi/static`.
 - Acoes de sessao, pedido, fila, reclamacao, conta, fechamento de turno e metricas.
 - Uso dos fixtures locais `rest_pilot`, `shift_pilot_open` e `table_01`.
 
@@ -19,7 +20,8 @@ phase/012-operational-console-ui
 
 ## Entregaveis
 
-- Console operacional P0 em HTML, CSS e JavaScript sem dependencias externas.
+- Console operacional P0 em React, TypeScript e Vite.
+- Build frontend embutido no backend Go.
 - Testes para rota raiz e assets estaticos.
 - Documentacao de desenvolvimento local atualizada.
 
@@ -31,6 +33,7 @@ Executados:
 GOCACHE=/tmp/eatinpeace-go-build go test ./...
 make test-e2e
 GOCACHE=/tmp/eatinpeace-go-build go vet ./...
+cd web && npm run build
 ```
 
 ## Escopo fora

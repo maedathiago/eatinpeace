@@ -16,3 +16,15 @@ A tese inicial e a definição dos agentes estão em:
 - [Fases do projeto](docs/phases/)
 - [Guia de agentes](AGENTS.md)
 - [Agentes do produto](docs/agents/)
+
+## Console operacional
+
+O frontend React fica em `web/` e publica o build em `internal/httpapi/static`, que e servido pelo backend Go em `/`.
+
+Comandos principais:
+
+```bash
+cd web && npm install
+make build-web
+make run
+```
